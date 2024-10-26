@@ -3,11 +3,11 @@ import matplotlib.pyplot as plt
 from scipy.ndimage import gaussian_filter1d
 
 # Read data from a document file (e.g., 'data.txt')
-data = np.loadtxt('mDfkZZBJHX/increasing.txt')
+data = np.loadtxt('mDfkZZBJHX/decreasing_f.txt')
 
 # Separate columns into T and R
 T = data[:, 0]
-R = data[:, 1]
+R = 0.0160691 * data[:, 1]
 
 # Define the step size (n-step differentiation)
 n = 50  # You can adjust this to the desired step size
@@ -28,9 +28,9 @@ dR_dT_clean = dR_dT_long_step[valid_indices]
 plt.figure(figsize=(10, 8))
 
 plt.plot(T, R, marker='o', linestyle='-', color='g')
-plt.xlabel('T(°C)')
-plt.ylabel('R(Ohm)')
-plt.title('Plot of T vs R (Before filtering)')
+plt.xlabel('T(K)')
+plt.ylabel('Resistivity(Ohm•m)')
+#plt.title('Plot of T vs R (Before filtering)')
 plt.grid(True)
 
 plt.show()
