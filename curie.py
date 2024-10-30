@@ -32,5 +32,7 @@ plt.xlabel('T(K)')
 plt.ylabel('Resistivity(Ohm•m)')
 #plt.title('Plot of T vs R (Before filtering)')
 plt.grid(True)
+plt.show()
 
+plt.plot(T_clean, dR_dT_clean)
 plt.show()
