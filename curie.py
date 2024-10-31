@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 from scipy.ndimage import gaussian_filter1d
 
 # Read data from a document file (e.g., 'data.txt')
-data = np.loadtxt('mDfkZZBJHX/decreasing_f.txt')
+data = np.loadtxt('NBCO/down.txt')
 
 # Separate columns into T and R
 T = data[:, 0]
@@ -22,7 +22,7 @@ T_long_step = (T[:-n] + T[n:]) / 2
 # Remove infinities and NaN values from the data
 valid_indices = np.isfinite(dR_dT_long_step)
 T_clean = T_long_step[valid_indices]
-dR_dT_clean = dR_dT_long_step[valid_indices]
+dR_dT_clean = dR_dT_long_step[valid_indices] * 25
 
 # Create a figure with two subplots (Before filtering T)
 plt.figure(figsize=(10, 8))
@@ -32,7 +32,8 @@ plt.xlabel('T(K)')
 plt.ylabel('Resistivity(Ohm•m)')
 #plt.title('Plot of T vs R (Before filtering)')
 plt.grid(True)
-plt.show()
 
-plt.plot(T_clean, dR_dT_clean)
+
+plt.plot(T_clean, dR_dT_clean, linestyle='-')
+# plt.grid(True)
 plt.show()
