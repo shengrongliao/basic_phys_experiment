@@ -14,4 +14,3 @@ plt.ylabel('PSD')
 plt.title('Angle vs PSD')
 plt.grid(True)
 plt.show()
-
